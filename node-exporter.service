@@ -10,3 +10,4 @@ ExecStart=/usr/local/bin/node_exporter
 
 [Install]
 WantedBy=multi-user.target
+
