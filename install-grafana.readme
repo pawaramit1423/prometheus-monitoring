@@ -1,0 +1,28 @@
+# Install from YUM repository
+
+-> You can install Grafana from a YUM repository, manually using YUM, manually using RPM, or by downloading a binary .tar.gz file.
+-> If you install from the YUM repository, then Grafana is automatically updated every time you run sudo yum update.
+
+-> Add a new file to your YUM repo using the method of your choice. The command below uses nano.
+
+sudo nano /etc/yum.repos.d/grafana.repo
+
+[grafana]
+name=grafana
+baseurl=https://rpm.grafana.com
+repo_gpgcheck=1
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.grafana.com/gpg.key
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+
+***********************************
+
+sudo yum install grafana
+
+****************************************
+sudo systemctl daemon-reload
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+sudo systemctl enable grafana-server.service
